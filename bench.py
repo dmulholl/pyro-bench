@@ -226,6 +226,14 @@ def main():
         vec.append(adder)
         vec.append(adder(i))
 
+    # String concatenation.
+    for i in range(1000):
+        s1 = "foo";
+        s2 = "bar";
+        s3 = "baz";
+        result = s1 + str(i) + s2 + str(i) + s3
+        map[result] = result;
+
 if __name__ == "__main__":
     main()
 

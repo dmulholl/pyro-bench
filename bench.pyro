@@ -284,5 +284,14 @@ def $main() {
         vec:append(adder);
         vec:append(adder(i));
     }
+
+    # String concatenation.
+    for i in $range(1000) {
+        var s1 = "foo";
+        var s2 = "bar";
+        var s3 = "baz";
+        var result = s1 + $str(i) + s2 + $str(i) + s3;
+        map[result] = result;
+    }
 }
 
