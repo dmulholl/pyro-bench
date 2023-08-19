@@ -1,15 +1,13 @@
 all:
 	@pyro --version
-	@python --version
-	@echo
-	@hyperfine --warmup 3 'pyro bench.pyro' 'python3 bench.py'
-
-pyro:
-	@pyro --version
 	@echo
 	@hyperfine --warmup 3 'pyro bench.pyro'
 
-python:
+.PHONY: compare
+compare:
+	@pyro --version
+	@echo
+	@hyperfine --warmup 3 'pyro compare/bench.pyro'
 	@python --version
 	@echo
-	@hyperfine --warmup 3 'python3 bench.py'
+	@hyperfine --warmup 3 'python3 compare/bench.py'

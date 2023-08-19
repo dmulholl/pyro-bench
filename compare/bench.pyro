@@ -2,11 +2,11 @@
 
 var global_variable = 0;
 
-for i in $range(10_000) {
+for i in $range(1000) {
     global_variable += 1;
 }
 
-for i in $range(10_000) {
+for i in $range(1000) {
     global_variable = global_variable - 1;
 }
 
@@ -34,9 +34,7 @@ def fizzbuzz(n) {
 }
 
 def arithmetic_operations(a, b, c, d) {
-    var local = 123;
-    var ooo = local + (1 + (a + (2 + (b + (3 + (c + (4 + d)))))));
-    var foo = ooo + (((-a * 123 + b * 123.456 + c * 23) / 31) * a) / (b + 1) + 2.0 * d;
+    var foo = (((-a * 123 + b * 123.456 + c * 23) / 31) * a) / (b + 1) + 2.0 * d;
     var bar = ((foo * a) / (b + 1)) * c + 3 * d;
     var baz = foo + bar + a + b + c + d;
     var bam = foo * 2 + bar * 3 + baz * 4;
@@ -105,7 +103,7 @@ class ObjectWithoutConstructor {
 }
 
 class ObjectWithConstructor {
-    pub var value;
+    pub var value = 0;
 
     def $init(value) {
         self.value = value;
@@ -115,16 +113,6 @@ class ObjectWithConstructor {
 class Object {
     pub var value = 0;
 
-    pub var field_01;
-    pub var field_02;
-    pub var field_03;
-    pub var field_04;
-    pub var field_05;
-    pub var field_06;
-    pub var field_07;
-    pub var field_08;
-    pub var field_09;
-
     pub def get_value() {
         return self.value;
     }
@@ -132,16 +120,6 @@ class Object {
     pub def set_value(value) {
         self.value = value;
     }
-
-    pub def method_01() {}
-    pub def method_02() {}
-    pub def method_03() {}
-    pub def method_04() {}
-    pub def method_05() {}
-    pub def method_06() {}
-    pub def method_07() {}
-    pub def method_08() {}
-    pub def method_09() {}
 }
 
 def $main() {
@@ -149,41 +127,39 @@ def $main() {
     var map = $map();
 
     # Basic global variable operations.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         global_variable += 1;
     }
-    for i in $range(10_000) {
+    for i in $range(1000) {
         global_variable = global_variable - 1;
     }
 
     # Basic local variable operations.
     var local_variable = 0;
-    for i in $range(10_000) {
+    for i in $range(1000) {
         local_variable += 1;
     }
-    for i in $range(10_000) {
+    for i in $range(1000) {
         local_variable = local_variable - 1;
     }
 
     # Basic arithmetic operations.
-    for i in $range(10_000) {
-        var local = 123;
-        var result = local + (1 + (2 + (3 + (4 + 5))));
-        result += (i * 109153 + 257) / 253 - 751 + 4059.123;
+    for i in $range(1000) {
+        var result = (i * 109153 + 257) / 253 - 751 + 4059.123;
         vec:append(result);
         map[i] = result;
     }
 
     # Basic string operations.
     var basic_string = "";
-    for i in $range(10_000) {
+    for i in $range(1000) {
         basic_string += $str(i);
         vec:append(basic_string);
         map[i] = basic_string;
     }
 
     # Basic string interpolation operations.
-    for i in $range(100) {
+    for i in $range(10) {
         for j in $range(10) {
             for k in $range(10) {
                 map["${i}-${j}-${k}"] = "foo-${i + j + k}-bar";
@@ -192,17 +168,17 @@ def $main() {
     }
 
     # Basic vector getting and setting.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         vec[i] = vec[i + 1];
     }
 
     # Basic map getting and setting.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         map[i * 2] = map[i];
     }
 
     # Basic type conversions.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         vec[i] = $i64($str(i));
     }
 
@@ -220,7 +196,7 @@ def $main() {
 
     # Basic sorting.
     var vec_to_sort = $vec();
-    for i in $range(10_000) {
+    for i in $range(1000) {
         vec_to_sort:append(i);
     }
     vec_to_sort:shuffle();
@@ -232,45 +208,40 @@ def $main() {
     }
 
     # FizzBuzz.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         vec:append(fizzbuzz(i));
     }
 
     # Basic object initialization without a constructor.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         var object = ObjectWithoutConstructor();
         object.value = i;
         vec:append(object);
     }
 
     # Basic object initialization with a constructor.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         var object = ObjectWithConstructor(i);
         vec:append(object);
     }
 
     # Basic field operations.
     var object = Object();
-    for i in $range(10_000) {
+    for i in $range(1000) {
         object.value += 1;
     }
-    for i in $range(10_000) {
+    for i in $range(1000) {
         object.value = object.value - 1;
     }
 
     # Basic method operations.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         object:set_value(i);
         vec:append(object:get_value());
     }
 
-    # Repeatedly call the same method on an object.
-    for i in $range(10_000) {
-        var value = object:get_value();
-    }
-
     # Arithmetic operations.
-    for i in $range(100) {
+    for i in $range(10) {
         for j in $range(10) {
             for k in $range(10) {
                 var result = arithmetic_operations(i, j, k, i + j + k);
@@ -280,7 +251,7 @@ def $main() {
     }
 
     # Bitwise operations.
-    for i in $range(100) {
+    for i in $range(10) {
         for j in $range(10) {
             for k in $range(10) {
                 var result = bitwise_operations(i, j, k);
@@ -290,15 +261,15 @@ def $main() {
     }
 
     # Comparison operations.
-    for i in $range(100) {
-        for j in $range(100) {
+    for i in $range(33) {
+        for j in $range(33) {
             var result = comparison_operations(i, j);
             vec:append(result);
         }
     }
 
     # String operations.
-    for i in $range(100) {
+    for i in $range(10) {
         for j in $range(10) {
             for k in $range(10) {
                 var result = string_operations($str(i), $str(j), $str(k));
@@ -308,47 +279,19 @@ def $main() {
     }
 
     # Closures.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         var adder = make_adder_closure(i);
         vec:append(adder);
         vec:append(adder(i));
     }
 
     # String concatenation.
-    for i in $range(10_000) {
+    for i in $range(1000) {
         var s1 = "foo";
         var s2 = "bar";
         var s3 = "baz";
         var result = s1 + $str(i) + s2 + $str(i) + s3;
         map[result] = result;
-    }
-
-    # String comparisons.
-    for i in $range(10_000) {
-        assert "abc" == "abc";
-        assert "abc" < "def";
-        assert "def" > "abc";
-    }
-
-    # Integer comparisons.
-    for i in $range(10_000) {
-        assert 123 == 123;
-        assert 123 < 456;
-        assert 456 > 123;
-    }
-
-    # Float comparisons.
-    for i in $range(10_000) {
-        assert 123.0 == 123.0;
-        assert 123.0 < 456.0;
-        assert 456.0 > 123.0;
-    }
-
-    # Tuple comparisons.
-    for i in $range(10_000) {
-        assert $tup(1, 2, 3) == $tup(1, 2, 3);
-        assert $tup(1, 2, 3) < $tup(1, 2, 4);
-        assert $tup(1, 2, 4) > $tup(1, 2, 3);
     }
 }
 
