@@ -1,4 +1,9 @@
-all:
+.PHONY: help
+help:
+	@cat ./makefile
+
+.PHONY: run
+run:
 	@pyro --version
 	@echo
 	@hyperfine --warmup 3 'pyro bench.pyro'
