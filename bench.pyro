@@ -350,5 +350,28 @@ def $main() {
         assert $tup(1, 2, 3) < $tup(1, 2, 4);
         assert $tup(1, 2, 4) > $tup(1, 2, 3);
     }
-}
 
+    # C-style loop.
+    with sum = 0 {
+        loop var i = 0; i < 10_000; i += 1 {
+            sum += i;
+        }
+    }
+
+    # Infinite loop.
+    with sum = 0 {
+        loop {
+            sum += 1;
+            if sum > 10_000 {
+                break;
+            }
+        }
+    }
+
+    # While loop.
+    with sum = 0 {
+        while sum < 10_000 {
+            sum += 1;
+        }
+    }
+}
