@@ -374,4 +374,15 @@ def $main() {
             sum += 1;
         }
     }
+
+    # Empty strings.
+    for _ in $range(10_000) {
+        vec:append("");
+    }
+
+    # Empty tuples.
+    for _ in $range(10_000) {
+        vec:append(());
+        vec:append($tup());
+    }
 }

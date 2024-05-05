@@ -234,6 +234,13 @@ def main():
         result = s1 + str(i) + s2 + str(i) + s3
         map[result] = result;
 
+    # Empty strings.
+    for _ in range(1000):
+        vec.append("")
+
+    # Empty tuples.
+    for _ in range(1000):
+        vec.append(())
+
 if __name__ == "__main__":
     main()
-
